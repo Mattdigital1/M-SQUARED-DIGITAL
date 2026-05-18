@@ -4,4 +4,4 @@ Allow: /
 # Ad landing pages — not for indexing
 Disallow: /lp/
 
-Sitemap: https://m2squareddigital.com/sitemap.xml
+Sitemap: https://msquareddigitalagency.com/sitemap.xml
