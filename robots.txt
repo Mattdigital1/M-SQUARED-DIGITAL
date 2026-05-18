@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Disallow: /admin/
-Disallow: /private/
+# Ad landing pages — not for indexing
+Disallow: /lp/
 
 Sitemap: https://m2squareddigital.com/sitemap.xml
