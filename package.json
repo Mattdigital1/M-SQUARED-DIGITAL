@@ -1,0 +1,12 @@
+{
+  "name": "m-squared-digital",
+  "version": "1.0.0",
+  "description": "M Squared Digital — static HTML website",
+  "private": true,
+  "scripts": {
+    "build": "echo 'Static site — no build step required'",
+    "start": "npx serve ."
+  },
+  "keywords": ["static", "html"],
+  "license": "UNLICENSED"
+}
