@@ -951,14 +951,15 @@
           <input class="input" id="phone" type="tel" placeholder="Mobile phone">
         </div>
         <input class="input" id="business" type="text" placeholder="Business name">
+        <div style="display:flex;align-items:flex-start;gap:10px;margin:4px 0 16px;font-size:13px;color:var(--muted);line-height:1.55">
+          <input type="checkbox" id="sms-consent" style="margin-top:3px;flex-shrink:0;accent-color:var(--ink);width:16px;height:16px">
+          <label for="sms-consent">By checking this box, I consent to receive text messages (SMS/MMS) and calls from M Squared Digital Agency at the number provided. Consent is not a condition of purchase. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out. Reply HELP for help. View our <a href="../privacy.html" style="color:var(--ink);font-weight:700">Privacy Policy</a>.</label>
+        </div>
         <div class="error" id="err5"></div>
         <div class="form-nav">
           <button class="btn btn-secondary" onclick="prev(5)">&larr; Back</button>
           <button class="btn btn-primary" onclick="submitForm()">Book Call &rarr;</button>
         </div>
-        <p class="form-hint center" style="margin-top:18px">
-          By submitting, you agree to receive a follow-up call/text from M Squared Digital. We don&rsquo;t spam &mdash; ever.
-        </p>
       </div>
 
       <!-- DISQUALIFY -->
@@ -1041,6 +1042,11 @@
   <div style="margin-top:4px">Websites That Book Jobs</div>
   <div style="margin-top:10px;letter-spacing:1px"><a href="mailto:matthew@msquareddigitalagency.com" style="color:var(--muted);text-decoration:none">matthew@msquareddigitalagency.com</a></div>
   <div style="margin-top:16px;font-size:11px;opacity:0.7;letter-spacing:1px">&copy; <span id="yr"></span> M Squared Digital. All rights reserved.</div>
+  <div style="margin-top:10px;font-size:11px;letter-spacing:1px">
+    <a href="../privacy.html" style="color:var(--muted);text-decoration:underline">Privacy Policy</a>
+    &nbsp;&middot;&nbsp;
+    <a href="../terms.html" style="color:var(--muted);text-decoration:underline">Terms of Service</a>
+  </div>
 </footer>
 
 <script>
@@ -1143,11 +1149,14 @@
     const email = document.getElementById("email").value.trim();
     const phone = document.getElementById("phone").value.trim();
     const business = document.getElementById("business").value.trim();
+    const smsConsent = document.getElementById("sms-consent").checked;
     if (!fullName) { setError(5, "Enter your full name."); return; }
     if (!isEmail(email)) { setError(5, "Enter a valid email."); return; }
     if (!phone || phone.length < 7) { setError(5, "Enter your mobile phone."); return; }
     if (!business) { setError(5, "Enter your business name."); return; }
+    if (!smsConsent) { setError(5, "Please check the consent box to continue."); return; }
     setError(5, "");
+    formData.smsConsent = true;
 
     formData.fullName = fullName;
     formData.email = email;
