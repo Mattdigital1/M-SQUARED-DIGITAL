@@ -81,15 +81,9 @@ if (form) {
   form.addEventListener('submit', async e => {
     e.preventDefault();
 
-    // A2P compliance: consent checkbox must be checked before submission
+    // SMS consent is optional — track value but never block submission
     const consentBox = form.querySelector('#sms-consent');
-    const consentError = document.getElementById('consent-error');
-    if (consentBox && !consentBox.checked) {
-      if (consentError) consentError.style.display = 'block';
-      consentBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      return;
-    }
-    if (consentError) consentError.style.display = 'none';
+    const smsConsent = consentBox ? consentBox.checked : false;
 
     const btn = form.querySelector('[type="submit"]');
     btn.textContent = 'Sending...';
