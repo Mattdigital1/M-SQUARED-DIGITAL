@@ -98,15 +98,37 @@ const form = document.getElementById('contact-form');
 if (form) {
   form.addEventListener('submit', async e => {
     e.preventDefault();
-
-    // SMS consent is optional — track value but never block submission
-    const consentBox = form.querySelector('#sms-consent');
-    const smsConsent = consentBox ? consentBox.checked : false;
-
     const btn = form.querySelector('[type="submit"]');
     btn.textContent = 'Sending...';
     btn.disabled = true;
-    await new Promise(r => setTimeout(r, 1200));
+
+    const firstName = form.querySelector('#first-name').value.trim();
+    const lastName  = form.querySelector('#last-name').value.trim();
+    const smsConsent = form.querySelector('#sms-consent') ? form.querySelector('#sms-consent').checked : false;
+
+    const payload = {
+      firstName,
+      lastName,
+      fullName: firstName + ' ' + lastName,
+      email:       form.querySelector('#email').value.trim(),
+      phone:       form.querySelector('#phone').value.trim(),
+      companyName: form.querySelector('#business').value.trim(),
+      service:     form.querySelector('#service').value,
+      budget:      form.querySelector('#budget').value,
+      message:     form.querySelector('#message').value.trim(),
+      smsConsent,
+      source:      'Contact Page',
+      submittedAt: new Date().toISOString()
+    };
+
+    try {
+      await fetch('https://services.leadconnectorhq.com/hooks/NJbNOm6MMu7bUAmukRIU/webhook-trigger/39335947-02ff-4416-a421-ffe4c22da8de', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    } catch (_) {}
+
     form.style.display = 'none';
     const success = document.getElementById('form-success');
     if (success) success.classList.add('show');
