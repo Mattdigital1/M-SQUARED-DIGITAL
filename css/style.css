@@ -314,6 +314,9 @@ p{color:var(--muted);line-height:1.7}
   .contact-grid{gap:48px}
 }
 @media(max-width:768px){
+  .faq-grid{grid-template-columns:1fr!important;gap:40px!important}
+  .faq-grid>div:first-child{text-align:center}
+  .faq-grid>div:first-child .btn{display:block;width:fit-content;margin:0 auto}
   .section{padding:72px 0}
   .section-sm{padding:56px 0}
   .section-header{margin-bottom:44px}
