@@ -1168,9 +1168,13 @@ src="https://www.facebook.com/tr?id=987270820578158&ev=PageView&noscript=1"
     setError(5, "");
     formData.smsConsent = smsConsent;
 
+    const nameParts = fullName.split(" ");
+    formData.firstName = nameParts[0] || fullName;
+    formData.lastName = nameParts.slice(1).join(" ") || "";
     formData.fullName = fullName;
     formData.email = email;
     formData.phone = phone;
+    formData.companyName = business;
     formData.business = business;
     formData.submittedAt = new Date().toISOString();
     formData.source = "Meta Ad — $297 Offer LP";

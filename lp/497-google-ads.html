@@ -1163,9 +1163,13 @@ src="https://www.facebook.com/tr?id=987270820578158&ev=PageView&noscript=1"
     if (!business) { setError(5, "Enter your business name."); return; }
     setError(5, "");
 
+    const nameParts = fullName.split(" ");
+    formData.firstName = nameParts[0] || fullName;
+    formData.lastName = nameParts.slice(1).join(" ") || "";
     formData.fullName = fullName;
     formData.email = email;
     formData.phone = phone;
+    formData.companyName = business;
     formData.business = business;
     formData.smsConsent = smsConsent;
     formData.submittedAt = new Date().toISOString();
