@@ -80,8 +80,22 @@ const form = document.getElementById('contact-form');
 if (form) {
   form.addEventListener('submit', async e => {
     e.preventDefault();
+
+    // A2P compliance: consent checkbox must be checked before submission
+    const consentBox = form.querySelector('#sms-consent');
+    if (consentBox && !consentBox.checked) {
+      consentBox.closest('.form-consent').style.outline = '2px solid #B91C1C';
+      consentBox.closest('.form-consent').style.borderRadius = '6px';
+      consentBox.closest('.form-consent').style.padding = '8px';
+      consentBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    if (consentBox) {
+      consentBox.closest('.form-consent').style.outline = '';
+      consentBox.closest('.form-consent').style.padding = '';
+    }
+
     const btn = form.querySelector('[type="submit"]');
-    const orig = btn.textContent;
     btn.textContent = 'Sending...';
     btn.disabled = true;
     await new Promise(r => setTimeout(r, 1200));
