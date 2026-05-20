@@ -83,17 +83,13 @@ if (form) {
 
     // A2P compliance: consent checkbox must be checked before submission
     const consentBox = form.querySelector('#sms-consent');
+    const consentError = document.getElementById('consent-error');
     if (consentBox && !consentBox.checked) {
-      consentBox.closest('.form-consent').style.outline = '2px solid #B91C1C';
-      consentBox.closest('.form-consent').style.borderRadius = '6px';
-      consentBox.closest('.form-consent').style.padding = '8px';
+      if (consentError) consentError.style.display = 'block';
       consentBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
-    if (consentBox) {
-      consentBox.closest('.form-consent').style.outline = '';
-      consentBox.closest('.form-consent').style.padding = '';
-    }
+    if (consentError) consentError.style.display = 'none';
 
     const btn = form.querySelector('[type="submit"]');
     btn.textContent = 'Sending...';
