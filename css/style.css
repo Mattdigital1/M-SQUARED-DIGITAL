@@ -15,7 +15,7 @@
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
@@ -199,6 +199,7 @@ p{color:var(--muted);line-height:1.7}
 .t-result{margin-left:auto;font-family:'Space Grotesk',sans-serif;font-size:0.72rem;font-weight:700;background:var(--black);color:var(--white);padding:5px 10px;border-radius:100px;white-space:nowrap}
 
 /* FAQ */
+.faq-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start}
 .faq-list{border-top:1px solid var(--border)}
 .faq-item{border-bottom:1px solid var(--border)}
 .faq-q{display:flex;justify-content:space-between;align-items:center;width:100%;padding:24px 0;font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;letter-spacing:-0.02em;color:var(--black);text-align:left;gap:16px}
@@ -323,9 +324,11 @@ p{color:var(--muted);line-height:1.7}
   .contact-grid{gap:48px}
 }
 @media(max-width:768px){
-  .faq-grid{grid-template-columns:1fr!important;gap:40px!important}
-  .faq-grid>div:first-child{text-align:center}
-  .faq-grid>div:first-child .btn{display:block;width:fit-content;margin:0 auto}
+  .faq-grid{grid-template-columns:1fr!important;gap:32px!important;text-align:center}
+  .faq-grid>div{width:100%}
+  .faq-grid .btn{display:block;width:fit-content;margin:0 auto}
+  .faq-list{text-align:left}
+  .nav-logo img{height:44px}
   .section{padding:72px 0}
   .section-sm{padding:56px 0}
   .section-header{margin-bottom:44px}
