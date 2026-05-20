@@ -63,13 +63,22 @@ p{color:var(--muted);line-height:1.7}
 .nav{position:fixed;top:0;left:0;right:0;z-index:1000}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;border-bottom:1px solid transparent;transition:all 0.3s var(--ease)}
 .nav.scrolled .nav-inner{background:rgba(245,243,238,0.93);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom-color:var(--border)}
+/* Dark section override — nav sits over black sections */
+.nav.nav-dark.scrolled .nav-inner{background:rgba(10,10,10,0.82)!important;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom-color:rgba(255,255,255,0.08)!important}
+.nav.nav-dark .nav-logo,.nav.nav-dark .nav-links a,.nav.nav-dark .nav-phone{color:var(--white)}
+.nav.nav-dark .nav-links a{opacity:0.7}
+.nav.nav-dark .nav-links a:hover,.nav.nav-dark .nav-links a.active{opacity:1}
+.nav.nav-dark .nav-phone:hover{opacity:1}
+.nav.nav-dark .nav-hamburger span{background:var(--white)}
+.nav.nav-dark .btn-primary{background:var(--white);color:var(--black)}
+.nav.nav-dark .btn-primary:hover{background:#eeece7;box-shadow:0 8px 24px rgba(255,255,255,0.15)}
 .nav-logo{display:flex;align-items:center;gap:8px;font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:-0.04em;color:var(--black)}
 .nav-logo img{height:34px;width:auto}
 .nav-links{display:flex;align-items:center;gap:32px}
-.nav-links a{font-family:'Space Grotesk',sans-serif;font-size:0.87rem;font-weight:600;color:var(--black);opacity:0.65;transition:opacity 0.2s}
+.nav-links a{font-family:'Space Grotesk',sans-serif;font-size:0.87rem;font-weight:600;color:var(--black);opacity:0.65;transition:opacity 0.2s,color 0.3s}
 .nav-links a:hover,.nav-links a.active{opacity:1}
 .nav-right{display:flex;align-items:center;gap:12px}
-.nav-phone{font-family:'Space Grotesk',sans-serif;font-size:0.84rem;font-weight:600;color:var(--black);opacity:0.55;transition:opacity 0.2s}
+.nav-phone{font-family:'Space Grotesk',sans-serif;font-size:0.84rem;font-weight:600;color:var(--black);opacity:0.55;transition:opacity 0.2s,color 0.3s}
 .nav-phone:hover{opacity:1}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;padding:4px;cursor:pointer}
 .nav-hamburger span{display:block;width:22px;height:2px;background:var(--black);border-radius:2px;transition:all 0.25s var(--ease)}

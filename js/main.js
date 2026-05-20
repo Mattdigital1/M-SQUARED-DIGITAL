@@ -8,6 +8,24 @@ if (nav) {
   }, { passive: true });
 }
 
+// Nav color switching based on section under nav
+const darkSectionEls = document.querySelectorAll('.stats-bar, .cta-section');
+if (darkSectionEls.length && nav) {
+  function updateNavColor() {
+    const navBottom = nav.offsetHeight;
+    let isDark = false;
+    darkSectionEls.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= navBottom && rect.bottom > 0) {
+        isDark = true;
+      }
+    });
+    nav.classList.toggle('nav-dark', isDark);
+  }
+  window.addEventListener('scroll', updateNavColor, { passive: true });
+  updateNavColor();
+}
+
 // Hamburger
 const hamburger = document.querySelector('.nav-hamburger');
 const mobileNav = document.querySelector('.nav-mobile');
