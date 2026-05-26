@@ -953,16 +953,22 @@ src="https://www.facebook.com/tr?id=987270820578158&ev=PageView&noscript=1"
           <input class="input" id="phone" type="tel" placeholder="Mobile phone">
         </div>
         <input class="input" id="business" type="text" placeholder="Business name">
-        <div style="display:flex;align-items:flex-start;gap:10px;margin:4px 0 16px;font-size:13px;color:var(--muted);line-height:1.55">
-          <input type="checkbox" id="sms-consent" style="margin-top:3px;flex-shrink:0;accent-color:var(--ink);width:16px;height:16px">
-          <label for="sms-consent"><strong>SMS opt-in (optional):</strong> By checking this box, you consent to receive marketing messages, appointment reminders, and service-related text messages (SMS/MMS) from M Squared Digital Agency at the mobile number provided, including messages sent by autodialer. Consent is not a condition of purchase. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to cancel. Reply HELP for help.</label>
+        <!-- Checkbox 1 — Transactional -->
+        <div class="consent-checkbox" style="font-size:13px">
+          <input type="checkbox" id="sms-transactional" name="sms_transactional">
+          <label for="sms-transactional">I consent to receive SMS notifications and alerts from M Squared Digital Agency. Messages include appointment reminders, confirmations, and service updates. Message frequency varies. Msg &amp; data rates may apply. Reply HELP for assistance or STOP to unsubscribe at any time.</label>
+        </div>
+        <!-- Checkbox 2 — Marketing -->
+        <div class="consent-checkbox" style="font-size:13px">
+          <input type="checkbox" id="sms-marketing" name="sms_marketing">
+          <label for="sms-marketing">I consent to receive marketing text messages from M Squared Digital Agency about special offers, service announcements, and business updates. Message frequency varies. Msg &amp; data rates may apply. Reply HELP for help or STOP to opt out.</label>
         </div>
         <div class="error" id="err5"></div>
         <div class="form-nav">
           <button class="btn btn-secondary" onclick="prev(5)">&larr; Back</button>
           <button class="btn btn-primary" onclick="submitForm()">Book Call &rarr;</button>
         </div>
-        <p style="font-size:11px;color:var(--muted);text-align:center;margin:10px 0 0;line-height:1.5">By submitting you agree to our <a href="../privacy.html" style="color:var(--muted);text-decoration:underline">Privacy Policy</a> &amp; <a href="../terms.html" style="color:var(--muted);text-decoration:underline">Terms of Service</a>. Your mobile number will not be shared with third parties. You may receive SMS messages from M Squared Digital Agency — reply STOP to opt out.</p>
+        <p class="form-disclaimer">By submitting this form you agree to our <a href="https://www.msquareddigitalagency.com/privacy.html">Privacy Policy</a> &amp; <a href="https://www.msquareddigitalagency.com/terms.html">Terms of Service</a>.</p>
       </div>
 
       <!-- DISQUALIFY: Trade -->
@@ -1157,7 +1163,8 @@ src="https://www.facebook.com/tr?id=987270820578158&ev=PageView&noscript=1"
     const email = document.getElementById("email").value.trim();
     const phone = document.getElementById("phone").value.trim();
     const business = document.getElementById("business").value.trim();
-    const smsConsent = document.getElementById("sms-consent").checked;
+    const smsTransactional = document.getElementById("sms-transactional") ? document.getElementById("sms-transactional").checked : false;
+    const smsMarketing = document.getElementById("sms-marketing") ? document.getElementById("sms-marketing").checked : false;
     if (!fullName) { setError(5, "Enter your full name."); return; }
     if (!isEmail(email)) { setError(5, "Enter a valid email."); return; }
     if (!phone || phone.length < 7) { setError(5, "Enter your mobile phone."); return; }
@@ -1172,7 +1179,9 @@ src="https://www.facebook.com/tr?id=987270820578158&ev=PageView&noscript=1"
     formData.phone = phone;
     formData.companyName = business;
     formData.business = business;
-    formData.smsConsent = smsConsent;
+    formData.smsTransactional = smsTransactional;
+    formData.smsMarketing = smsMarketing;
+    formData.smsConsent = smsTransactional || smsMarketing;
     formData.submittedAt = new Date().toISOString();
     formData.source = "Meta Ad — $497 Google Ads LP";
 
@@ -1192,6 +1201,6 @@ src="https://www.facebook.com/tr?id=987270820578158&ev=PageView&noscript=1"
   }
 </script>
 
-<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a10731020e5a77e6721e00d" data-source="WEB_USER"></script>
+
 </body>
 </html>

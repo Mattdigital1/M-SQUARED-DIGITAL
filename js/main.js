@@ -104,7 +104,8 @@ if (form) {
 
     const firstName = form.querySelector('#first-name').value.trim();
     const lastName  = form.querySelector('#last-name').value.trim();
-    const smsConsent = form.querySelector('#sms-consent') ? form.querySelector('#sms-consent').checked : false;
+    const smsTransactional = form.querySelector('#sms-transactional') ? form.querySelector('#sms-transactional').checked : false;
+    const smsMarketing = form.querySelector('#sms-marketing') ? form.querySelector('#sms-marketing').checked : false;
 
     const payload = {
       firstName,
@@ -116,7 +117,9 @@ if (form) {
       service:     form.querySelector('#service').value,
       budget:      form.querySelector('#budget').value,
       message:     form.querySelector('#message').value.trim(),
-      smsConsent,
+      smsTransactional,
+      smsMarketing,
+      smsConsent: smsTransactional || smsMarketing,
       source:      'Contact Page',
       submittedAt: new Date().toISOString()
     };

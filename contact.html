@@ -227,12 +227,18 @@
               <label for="message">Tell Us About Your Business</label>
               <textarea id="message" name="message" placeholder="What services do you offer? What's your service area? What are your biggest growth challenges right now?"></textarea>
             </div>
-            <div class="form-consent">
-              <input type="checkbox" id="sms-consent" name="sms_consent">
-              <label for="sms-consent"><strong>SMS opt-in (optional):</strong> By checking this box, you consent to receive marketing messages, appointment reminders, and service-related text messages (SMS/MMS) from M Squared Digital Agency at the mobile number provided, including messages sent by autodialer. Consent is not a condition of purchase. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to cancel. Reply HELP for help.</label>
+            <!-- Checkbox 1 — Transactional -->
+            <div class="consent-checkbox">
+              <input type="checkbox" id="sms-transactional" name="sms_transactional">
+              <label for="sms-transactional">I consent to receive SMS notifications and alerts from M Squared Digital Agency. Messages include appointment reminders, confirmations, and service updates. Message frequency varies. Msg &amp; data rates may apply. Reply HELP for assistance or STOP to unsubscribe at any time.</label>
+            </div>
+            <!-- Checkbox 2 — Marketing -->
+            <div class="consent-checkbox">
+              <input type="checkbox" id="sms-marketing" name="sms_marketing">
+              <label for="sms-marketing">I consent to receive marketing text messages from M Squared Digital Agency about special offers, service announcements, and business updates. Message frequency varies. Msg &amp; data rates may apply. Reply HELP for help or STOP to opt out.</label>
             </div>
             <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center">Send My Message →</button>
-            <p style="font-size:12px;color:var(--muted);text-align:center;margin:10px 0 0;line-height:1.5">By submitting this form you agree to our <a href="privacy.html" style="color:var(--muted);text-decoration:underline">Privacy Policy</a> &amp; <a href="terms.html" style="color:var(--muted);text-decoration:underline">Terms of Service</a>. Your mobile number will not be shared with third parties. You may receive SMS messages from M Squared Digital Agency — reply STOP to opt out at any time.</p>
+            <p class="form-disclaimer">By submitting this form you agree to our <a href="https://www.msquareddigitalagency.com/privacy.html">Privacy Policy</a> &amp; <a href="https://www.msquareddigitalagency.com/terms.html">Terms of Service</a>.</p>
           </form>
         </div>
       </div>
@@ -306,6 +312,6 @@
 </footer>
 
 <script src="js/main.js"></script>
-<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a10731020e5a77e6721e00d" data-source="WEB_USER"></script>
+
 </body>
 </html>

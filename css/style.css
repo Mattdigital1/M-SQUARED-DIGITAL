@@ -261,6 +261,11 @@ p{color:var(--muted);line-height:1.7}
 .form-group select{appearance:none;cursor:pointer}
 .form-consent{display:flex;align-items:flex-start;gap:10px;margin-bottom:20px;font-size:0.78rem;color:var(--muted)}
 .form-consent input{width:auto;margin-top:3px;flex-shrink:0}
+.consent-checkbox{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;font-size:0.78rem;color:var(--muted);line-height:1.55}
+.consent-checkbox input[type="checkbox"]{width:auto;margin-top:3px;flex-shrink:0;accent-color:var(--black)}
+.consent-checkbox label{cursor:pointer}
+.form-disclaimer{font-size:12px;color:var(--muted);text-align:center;margin:10px 0 0;line-height:1.5}
+.form-disclaimer a{color:var(--muted);text-decoration:underline}
 .form-success{display:none;text-align:center;padding:48px}
 .form-success.show{display:block}
 .form-success-icon{width:60px;height:60px;background:var(--black);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--white);margin:0 auto 20px}
