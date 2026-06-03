@@ -8,7 +8,11 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://msquareddigitalagency.com/privacy">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap">
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   <style>
     .legal-body h2{font-size:clamp(1.3rem,2.5vw,1.7rem);margin-top:48px;margin-bottom:12px}
     .legal-body h3{font-size:1.05rem;font-weight:700;margin-top:28px;margin-bottom:8px;color:var(--black)}
@@ -163,7 +167,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="footer-logo"><img src="images/logo.png" alt="M Squared Digital"></div>
+        <div class="footer-logo"><img src="images/logo.png" alt="M Squared Digital" loading="lazy" width="auto" height="52"></div>
         <p class="footer-tagline">Performance marketing built for local service businesses ready to grow.</p>
         <p style="font-size:0.84rem;color:var(--muted);margin-bottom:8px">Optimize. Advertise. Grow.</p>
         <div class="footer-social">
@@ -202,7 +206,7 @@
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/main.js" defer></script>
 
 </body>
 </html>
